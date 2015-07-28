@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <title>GROOLS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resources/js/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="resources/css/grools_svg.css">
+    <script type="text/javascript" src="resources/js/jquery/jquery-2.1.4.min.js" > </script>
+    <script type="text/javascript" src="resources/js/jquery-ui/jquery-ui.min.js" > </script>
+    <script type="text/javascript" src="resources/js/svg_common.js" > </script>
+    <script type="text/javascript" src="resources/js/species_websocket.js" > </script>
+</head>
+<body>
+    <h1>Welcome to GROOLS</h1>
+    <fieldset>
+        <label for="species">Species:</label>
+        <input id="species" type="text" value="">
+        <label for="strains">Strain:</label>
+        <input id="strains" type="text" value="">
+        <button type="button" onclick="reset()">Reset</button>
+    </fieldset>
+    <object type="image/svg+xml" data="/resources/svg/default.svg" id="grools_svg">
+        Your browser doesn't support SVG
+    </object>
+</body>
+</html>
