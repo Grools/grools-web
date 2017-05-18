@@ -7,6 +7,7 @@ targetCompatibility = 1.8
 version = '1.0'
 group = 'fr.cea.ig'
 
+
 repositories {
     mavenCentral()
     mavenLocal()
@@ -23,9 +24,12 @@ dependencies {
     compile 'commons-logging:commons-logging:1.1.1'
     compile 'log4j:log4j:1.2.16'
     compile 'com.google.code.gson:gson:2.3.1'
-    compile 'fr.cea.ig:grools-checker:1.0'
-    compile 'fr.cea.ig:grools-checker-obo:1.0.1'
-    compile 'fr.cea.ig:MicrocycPkGDB-model:1.1'
-    compile 'fr.cea.ig:obo-parser:0.2.1'
-    compile 'fr.cea.ig:obo-model:0.2.3'
+    compile group: 'org.apache.commons' , name: 'commons-csv' , version: '1.3'
+    compile group: 'ch.qos.logback' , name: 'logback-classic' , version: '1.1.2'
+    compile files(  'libs/bio-scribe-0.3.0.jar',
+                    'libs/grools-reasoner-1.0.0.jar',
+                    'libs/grools-unipathway-plugins-2.0.0.jar',
+                    'libs/grools-genome-properties-plugins-3.0.0.jar',
+                    'libs/grools-reporter-2.1.0.jar',
+                    'libs/MicrocycPkGDB-model-1.1.0.jar')
 }

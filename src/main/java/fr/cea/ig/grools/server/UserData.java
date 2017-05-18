@@ -11,12 +11,16 @@ public class UserData {
     private final Boolean speciesSelected;
     private final String strains;
     private final Boolean strainsSelected;
+    private final String mode;
+    private final String metabolicNetworkModel;
 
-    public UserData(@NotNull final String species, @NotNull final Boolean speciesSelected, @NotNull final String strains, @NotNull final Boolean strainsSelected) {
-        this.species            = species;
-        this.speciesSelected    = speciesSelected;
-        this.strains            = strains;
-        this.strainsSelected    = strainsSelected;
+    public UserData(@NotNull final String species, @NotNull final Boolean speciesSelected, @NotNull final String strains, @NotNull final Boolean strainsSelected, @NotNull final String mode, @NotNull final String metabolicNetworkModel) {
+        this.species                = species;
+        this.speciesSelected        = speciesSelected;
+        this.strains                = strains;
+        this.strainsSelected        = strainsSelected;
+        this.mode                   = mode;
+        this.metabolicNetworkModel  = metabolicNetworkModel;
     }
 
     public String getSpecies() {
@@ -35,6 +39,14 @@ public class UserData {
         return strainsSelected;
     }
 
+    public String getMode(){
+        return mode;
+    }
+
+    public String getMetabolicNetworkModel(){
+        return metabolicNetworkModel;
+    }
+
     @Override
     public String toString(){
         JsonObject jsonObject = Json.createObjectBuilder()
@@ -42,6 +54,8 @@ public class UserData {
                                     .add("speciesSelected", speciesSelected)
                                     .add("strains", strains )
                                     .add("strainsSelected", strainsSelected)
+                                    .add("mode", mode)
+                                    .add("metabolicNetworkModel", metabolicNetworkModel)
                                     .build();
         return jsonObject.toString();
     }
