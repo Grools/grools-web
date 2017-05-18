@@ -23,7 +23,12 @@ public class UserDataDecoder implements Decoder.Text<UserData> {
         Reader reader           = new StringReader(s);
         JsonReader jsonReader   = Json.createReader(reader);
         JsonObject object       = jsonReader.readObject();
-        return new UserData( object.getString("species"), object.getBoolean("speciesSelected"), object.getString("strains"), object.getBoolean("strainsSelected"),  object.getString("mode"), object.getString("metabolicNetworkModel"));
+        return new UserData( object.getString("species"),
+                             object.getBoolean("speciesSelected"),
+                             object.getString("strains"),
+                             object.getBoolean("strainsSelected"),
+                             object.getJsonArray("mode"),
+                             object.getString("metabolicNetworkModel"));
     }
 
     @Override

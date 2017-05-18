@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="resources/css/grools_svg.css">
     <script type="text/javascript" src="resources/js/jquery/jquery-2.1.4.min.js" > </script>
     <script type="text/javascript" src="resources/js/jquery-ui/jquery-ui.min.js" > </script>
-    <script type="text/javascript" src="resources/js/svg_common.js" > </script>
     <script type="text/javascript" src="resources/js/species_websocket.js" > </script>
 </head>
 <body>
@@ -16,12 +15,24 @@
     <fieldset>
         <label for="species">Species:</label>
         <input id="species" type="text" value="">
+
         <label for="strains">Strain:</label>
         <input id="strains" type="text" value="">
+
+        <fieldset>
+            Normal:         <input type="checkbox" id="cb_normal"       value="normal">
+            Specific        <input type="checkbox" id="cb_specific"     value="specific">
+            Dispensable:    <input type="checkbox" id="cb_dispensable"  value="dispensable">
+            Falsehood:      <input type="checkbox" id="cb_falsehood"    value="falsehood">
+        </fieldset>
+
+        <select>
+            <option value="Genome Properties">Genome Properties</option>
+            <option value="MetaCyc">MetaCyc</option>
+            <option value="Unipathway">Unipathway</option>
+        </select>
+
         <button type="button" onclick="reset()">Reset</button>
     </fieldset>
-    <object type="image/svg+xml" data="/resources/svg/default.svg" id="grools_svg">
-        Your browser doesn't support SVG
-    </object>
 </body>
 </html>

@@ -1,7 +1,7 @@
 
 
 function initUserData(){
-    return  { 'species': '', 'strains': '', 'speciesSelected': false, 'strainsSelected': false };
+    return  { 'species': '', 'strains': '', 'speciesSelected': false, 'strainsSelected': false, 'mode': [], 'metabolicNetworkModel': '' };
 }
 
 var grools_svg;
@@ -9,7 +9,7 @@ var svgDoc;
 var speciesInput;
 var strainsInput;
 var userData     = initUserData();
-var availableTags= { 'species': [], 'strains': [], svg: '', 'eventNodes': [] };
+var availableTags= { 'species': [], 'strains': [] };
 var organismWS;
 
 function reset(){
@@ -30,8 +30,8 @@ $( document ).ready(function() {
     tooltips.className  = 'grools';
     document.body.appendChild(tooltips);
     const tooltipsId    = document.getElementById('tooltips-content');
-    availableTags= { 'species': [], 'strains': [], svg: '' };
-    organismWS   = new WebSocket('ws://' + window.location.host + window.location.pathname + 'organisms');
+    availableTags       = { 'species': [], 'strains': [] };
+    organismWS          = new WebSocket('ws://' + window.location.host + window.location.pathname + 'organisms');
     organismWS.onconnect = function(e) {
         console.log('connected');
     };
@@ -51,17 +51,7 @@ $( document ).ready(function() {
                 speciesInput.autocomplete('option', {source: availableTags.species});
             }
             strainsInput.autocomplete('option', {source: availableTags.strains[speciesInput.val()]});
-            if (availableTags.svg != '' ) {
-                grools_svg.prop('data', availableTags.svg );
-                //grools_svg.ready(function() {svgDoc = grools_svg[0].contentDocument;});
-                while( svgDoc == null )
-                    svgDoc = grools_svg[0].contentDocument;
-                for (var i = 0; i < availableTags.eventNodes.length; i++) {
-                    const item = availableTags.eventNodes[i];
-                    addNodeEvent(tooltipsId, svgDoc, item[0], item[1], item[2]);
-                }
-                availableTags.eventNodes = []; // clear
-            }
+
         });
     };
     speciesInput.keyup(  function(event) {

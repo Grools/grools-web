@@ -34,7 +34,6 @@ package fr.cea.ig.grools.server;
  */
 
 
-import com.google.gson.Gson;
 import fr.cea.ig.database.pkgdb.GoMrCpd;
 import fr.cea.ig.database.pkgdb.Organism;
 
